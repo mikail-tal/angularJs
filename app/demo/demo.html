@@ -1,14 +1,8 @@
 <div>
-<p>hello on as crée une page html demo.</p>
-</div>
-<div>
     {{maVariable}}
 </div>
 
-
-
-
-<div class="container">
+<div class="container-fluid">
     <form>
         <div class="form-group">
             <label>Nom</label>
@@ -28,29 +22,91 @@
     </p>
 
     <p> {{person.age | yearToMonth}} </p>
-    {{ person | json : spacing}}
-    {{person.nom | uppercase }} 
-    <anne value ="person.age"></anne>
+    {{ person | json : spacing}} {{person.nom | uppercase }}
+    <anne value="person.age"></anne>
 </div>
 
-
-<div  ng-controller="DemoCtrl" >
-<table class="table">
-    <thead>
-        <tr class="warning">
-            <th>Firstname</th>
-            <th>phone</th>
-            <th>Age</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="friend in friends | orderBy :'-age'" class="success">
-            <td>{{friend.name}}</td>
-            <td>{{friend.phone}}</td>
-            <td>{{friend.age}}</td>
-        </tr>
-
-    </tbody>
-</table>
-<button ng-model ="order">par nom </button>
+<div class="container-fluid">
+    <select ng-options="book.text for book in books track by book.title" ng-model="selectedBook">
+    <option></option>
+</select> {{selectedBook}}
 </div>
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+            <tr class="warning">
+                <th>Firstname</th>
+                <th>phone</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="friend in friends " class="success">
+                <td>{{friend.name}}</td>
+                <td>{{friend.phone}}</td>
+                <td>{{friend.age}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+<div class="container-fluid">
+    <form name="demoForm" class="form-group" novalidate ng-submit="submit()">
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" name="email" ng-model="email" required ng-minlength="3"></input>
+            <ul>
+                <ng-messages for="demoForm.email.$error">
+                    <ng-message when="required">
+                        <li> le email est requis</li>
+                    </ng-message>
+                </ng-messages>  
+            </ul>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" name="pwd" ng-model="motdepasse" required ng-minlength="4"></input>
+              <ul>
+                <ng-messages for="demoForm.pwd.$error">
+                    <ng-message when="required">
+                        <li> le password est requis</li>
+                    </ng-message>
+                     <ng-message when="minlength">
+                        <li> la taille faut etre > 8</li>
+                    </ng-message>
+
+                </ng-messages>  
+            </ul>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" > Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-info">Submit</button>
+
+        <pre> {{demoForm | json}}</pre>
+    </form>
+</div>
+
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+            <tr class="danger">
+                <th>id</th>
+                <th>title</th>
+                <th>userId</th>
+                <th>body</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="response in datas  " class="success">
+                <td class="warning">{{response.id }}</td>
+                <td class="success">{{response.title |uppercase }}</td>
+                <td class="warning">{{response.userId}}</td>
+                <td class="success">{{response.body}}</td>
+            </tr>
+
+        </tbody>
+    </table>
