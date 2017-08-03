@@ -19,13 +19,7 @@ angular.module('myApp.demo', ['ngRoute'])
          $scope.submit=function(){
          $location.path('/view1');
      }
-
-
-
-
-
-
-
+        
         $scope.books.forEach(function (book) {
             book.text = book.id + ' ' + book.author + ' ' + book.title;
         });

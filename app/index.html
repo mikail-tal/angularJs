@@ -14,24 +14,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
   <!-- import bootstrap / css pour le tableau -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js">
+
+  </script>
 </head>
 
 <body>
   <div class="jumbotron text-center">
     <h1>Mikail Tal </h1>
     <img src="" alt="The artist" style="width:304px;height:228px;">
-    
+
   </div>
   <ul class="menu">
     <li><a href="#!/view1">view1</a></li>
     <li><a href="#!/view2">view2</a></li>
     <li><a href="#!/demo">demo</a></li>
+    <li><a href="#!/shop">shop</a></li>
+    <li> Albums achétées {{quantite}} </li>
 
   </ul>
 
@@ -54,11 +60,15 @@
   <script src="view1/view1.js"></script>
   <script src="view2/view2.js"></script>
   <script src="demo/demo.js"></script>
+
   <script src="demo/demo.service.js"></script>
   <script src="demo/year-to-month.filter.js"></script>
   <script src="demo/anne.component.js"></script>
   <script src="components/version/version.js"></script>
   <script src="demo/demo.constant.js"></script>
+  <script src="shop/shop.js"></script>
+  <script src="shop/shop.constant.js"></script>
+  <script src="shop/shop.service.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
 </body>

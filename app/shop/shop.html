@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <p> bienvenue dans notre magasin </p>
+    <h2 ng-show="showmessage">
+        {{resultat}}
+    </h2>
+</div>
+<div class="container-fluid">
+    <form name="shopForm" class="form-group" novalidate ng-submit="panier()">
+        <div class="form-group">
+            <label>Quantité</label>
+            <input type="number" class="form-control" ng-model='nombre' required></input>
+        </div>
+        <div class="form-group">
+            <label>album</label></br>
+            <div class="from-group">
+                <select class="form-control" ng-options="image as (image.id+' '+image.title ) for image in dataImage track by image.id" ng-model="selected"
+                    required>
+    
+             </select>
+            </div>
+        </div>
+        <input type="submit" value="ajouter au panier" class="btn btn-info"></input>
+    </form>
+
+</div>
+<div class="container-fluid">
+    <table class="table" name="commande">
+        <tr class="danger">
+        </tr>
+        <tbody>
+            <tr ng-repeat=" select in list " class="success">
+                <td class="warning">{{select.nombre }}</td>
+                <td class="success">{{select.album.title |uppercase }}</td>
+                <td><button type="submit" ng-click="supprimer($index)"ng-model="panier" class="btn btn-danger">Supprimer l'album</button> </td>
+            </tr>
+        </tbody>
+        <button type="submit" ng-click="acheter()" class="btn btn-info" ng-if="list.length" class="animate-if">Acheter</button>
+    </table>
+
+</div>
+
+<pre> {{shopForm | json}}</pre>

@@ -8,6 +8,7 @@ angular.module('myApp', [
   'myApp.view1',
   'myApp.view2',
   'myApp.demo',
+  'myApp.shop',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
@@ -26,7 +27,16 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     controller:'DemoCtrl',
     controllerAs:'ctrl'
   })
+  .when('/shop',{
+    templateUrl:'shop/shop.html',
+    controller:'ShopCtrl',
+    controllerAs:'ctrl1'
+  })
   .otherwise({redirectTo: '/view1'});
-}]);
+
+}]).run(function($rootScope){
+  $rootScope.quantite = 0 ;
+});
+
 
 
